@@ -22,7 +22,7 @@ jobs:
     steps:
       - run: echo "Goodbye"
       - run: |
-          echo "{}" | jq
+          echo '{"status":"UP"}' | jq
       - run: >
           echo
           and
