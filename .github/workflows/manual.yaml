@@ -1,0 +1,31 @@
+on:
+  workflow_dispatch:
+    inputs:
+      greetee:
+        default: "World"
+        description: "Greet this guy"
+        required: true
+        type: "string"
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello ${{ inputs.greetee }}"
+
+
+  goodbye:
+    runs-on: ubuntu-latest
+    needs: [ "hello" ]
+    steps:
+      - run: echo "Goodbye"
+      - run: |
+          echo "{}" | jq
+      - run: >
+          echo
+            and
+            I
+            mean
+            it.
+
+            
