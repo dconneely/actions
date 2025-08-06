@@ -22,7 +22,8 @@ jobs:
     steps:
       - run: echo "Goodbye"
       - run: |
-          echo '{"status":"UP"}' | jq
+          echo '{"data":"QUxMIEdPT0Q="}' | jq -r '.data' | base64 -d
+          echo ''
           echo '{"status":"UP"}' | yq -P
       - run: >
           echo
