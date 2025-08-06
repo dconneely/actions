@@ -23,6 +23,7 @@ jobs:
       - run: echo "Goodbye"
       - run: |
           echo '{"status":"UP"}' | jq
+          echo '{"status":"UP"}' | yq -P
       - run: >
           echo
           and
