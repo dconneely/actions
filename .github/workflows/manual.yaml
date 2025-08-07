@@ -22,8 +22,8 @@ jobs:
     steps:
       - run: echo "Goodbye"
       - run: |
-          echo '{"data":"QUxMIEdPT0Q="}' | jq -r '.data' | base64 -d
-          echo ''
+          export VARIABLE=$(echo '{"data":{"VARIABLE":"QUxMIEdPT0Q="}}' | jq -r '.data["VARIABLE"] | @base64d')
+          echo "$VARIABLE"
           echo '{"status":"UP"}' | yq -P
       - run: >
           echo
